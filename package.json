@@ -1,0 +1,16 @@
+{
+  "name": "supplier-lambda-aws",
+  "version": "1.0.0",
+  "description": "Lambda para la creación de proveedores.",
+  "author": "Andres Moreno Cuesta", 
+  "dependencies": {
+    "dotenv": "^16.0.3",
+    "mysql2": "^3.2.0"
+  },
+  "devDependencies": {
+    "lambda-local": "^2.0.3"
+  },
+  "scripts": {
+    "start": "lambda-local -l index.js -h handler -e event.json"
+  }
+}

@@ -3,6 +3,7 @@
     "path": "/supplier",
     "body": {"name":"John","email":"info@gmail.com"},
     "headers": {
-      "Content-Type": "application/json"
+      "Content-Type": "application/json",
+      "api_key" : "c4643be0da89b1eb273458eaaec8f5be9dc61807"
     }
 }

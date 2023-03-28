@@ -2,18 +2,30 @@ const { SupplierService,Supplier } = require('./app');
 
 exports.handler = async(event) => {
     try {
-        const {name,email} = JSON.parse(event.body);
+        const {name,email} = event.body;
+        if (!name) {
+          return {
+            statusCode: 400,
+            message: 'name requerido',
+          };
+        }else if (!email) {
+          return {
+            statusCode: 400,
+            message: 'email requerido',
+          };
+        }
         const supplier = new Supplier(name, email);
-        const results = await SupplierService.createSupplier(supplier);
+        await SupplierService.createSupplier(supplier);
         return {
           statusCode: 200,
-          body: JSON.stringify({ message: 'Supplier create.', data: results }),
+          message: 'Supplier create.'
         };
       } catch (error) {
         console.error('Error creating Supplier', error);
         return {
           statusCode: 500,
-          body: JSON.stringify({ message: 'Error creating supplier', error }),
+          message: 'Error creating supplier', 
+          error: error,
         };
       }
 };
